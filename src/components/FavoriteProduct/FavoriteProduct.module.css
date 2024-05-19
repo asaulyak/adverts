@@ -1,0 +1,13 @@
+.heart {
+  cursor: pointer;
+}
+
+.inactive {
+  fill: none;
+  stroke: var(--black);
+}
+
+.active {
+  fill: var(--red);
+  stroke: var(--red);
+}
