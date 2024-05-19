@@ -27,7 +27,13 @@ const productsSlice = createSlice({
     builder.addCase(fetchProducts.fulfilled, (state, action) => {
       state.isLoading = false;
       state.error = null;
-      state.items = action.payload;
+
+      state.items = [
+        ...state.items.filter(
+          item => !action.payload.some(inner => inner.id === item.id)
+        ),
+        ...action.payload,
+      ];
     });
 
     builder.addCase(fetchProduct.fulfilled, (state, action) => {

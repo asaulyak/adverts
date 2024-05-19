@@ -20,3 +20,16 @@
   background-color: var(--dark-red);
   outline: none;
 }
+
+.light {
+  background-color: transparent;
+  border: solid 1px rgba(71, 84, 103, 0.2);
+  color: var(--black);
+}
+
+.button.light:focus-visible,
+.button.light:focus,
+.button.light:hover {
+  background-color: transparent;
+  border-color: var(--dark-red);
+}
