@@ -1,5 +1,18 @@
 .page {
   display: flex;
-  gap: 50px;
+  gap: 64px;
+  flex-direction: row;
 }
 
+.filters {
+  width: 360px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 50px;
+
+  min-width: 888px;
+}

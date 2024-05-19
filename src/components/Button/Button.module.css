@@ -12,6 +12,8 @@
   font-weight: 500;
 
   cursor: pointer;
+
+  min-width: 170px;
 }
 
 .button:focus-visible,
