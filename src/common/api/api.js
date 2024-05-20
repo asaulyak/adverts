@@ -7,7 +7,13 @@ const instance = axios.create({
   },
 });
 
-export const getProducts = (page = 1, limit = 4) =>
-  instance.get(`/adverts?page=${page}&limit=${limit}`);
+export const getProducts = ({ page = 1, limit = 4, ...rest }) =>
+  instance.get(`/adverts`, {
+    params: {
+      page,
+      limit,
+      ...rest,
+    },
+  });
 
 export const getProduct = id => instance.get(`/adverts/${id}`);

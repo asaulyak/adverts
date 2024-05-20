@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchProduct, fetchProducts } from './operations.js';
+import {fetchProduct, fetchProducts, fetchProductsRange} from './operations.js'
 
 const handlePending = state => {
   state.isLoading = true;
@@ -8,6 +8,7 @@ const handlePending = state => {
 const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
+  state.items = [];
 };
 
 const productsSlice = createSlice({
@@ -20,11 +21,13 @@ const productsSlice = createSlice({
   extraReducers: builder => {
     builder.addCase(fetchProducts.pending, handlePending);
     builder.addCase(fetchProduct.pending, handlePending);
+    builder.addCase(fetchProductsRange.pending, handlePending);
 
     builder.addCase(fetchProducts.rejected, handleRejected);
     builder.addCase(fetchProduct.rejected, handleRejected);
+    builder.addCase(fetchProductsRange.rejected, handleRejected);
 
-    builder.addCase(fetchProducts.fulfilled, (state, action) => {
+    builder.addCase(fetchProductsRange.fulfilled, (state, action) => {
       state.isLoading = false;
       state.error = null;
 
@@ -34,6 +37,13 @@ const productsSlice = createSlice({
         ),
         ...action.payload,
       ];
+    });
+
+    builder.addCase(fetchProducts.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.error = null;
+
+      state.items = action.payload || [];
     });
 
     builder.addCase(fetchProduct.fulfilled, (state, action) => {

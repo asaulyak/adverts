@@ -8,16 +8,17 @@ export const selectProduct = (state, productId) =>
 
 export const selectFilters = state => state.filters;
 
+export const selectProductsLoading = state => state.products.isLoading;
+
+export const selectFilterSearchParams = createSelector(
+  [selectFilters],
+  filters => filters.searchParams
+);
+
 export const selectFilteredProducts = createSelector(
   [selectProducts, selectFilters],
   (products, filters) => {
     let filteredProducts = products.slice(0);
-
-    if (filters.location) {
-      filteredProducts = filteredProducts.filter(product =>
-        product.location.toLowerCase().includes(filters.location)
-      );
-    }
 
     if (filters.equipment.length) {
       const equipmentFiltersMap = equipmentFilters.reduce(
@@ -43,12 +44,15 @@ export const selectFilteredProducts = createSelector(
       });
     }
 
-    if (filters.type) {
-      filteredProducts = filteredProducts.filter(
-        product => product.type === filters.type
-      );
-    }
-
     return filteredProducts;
+  }
+);
+
+export const selectFavoriteIds = state => state.favorites.productIds;
+
+export const selectFavoriteProducts = createSelector(
+  [selectProducts, selectFavoriteIds],
+  (products, favoriteIds) => {
+    return products.filter(product => favoriteIds.includes(product.id));
   }
 );

@@ -2,8 +2,25 @@ import { FilterEquipment } from '../FilterEquipment/FilterEquipment.jsx';
 import css from './Filters.module.css';
 import { FilterType } from '../FilterType/FilterType.jsx';
 import { FilterLocation } from '../FilterLocation/FilterLocation.jsx';
+import { Button } from '../Button/Button.jsx';
+import { useDispatch } from 'react-redux';
+import {
+  setPagination,
+  updateSearchParams,
+} from '../../redux/filters.slice.js';
+import { useEffect } from 'react';
 
 export const Filters = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(updateSearchParams());
+  }, [dispatch]);
+
+  const handleSearchClick = () => {
+    dispatch(setPagination({ page: 1 }));
+    dispatch(updateSearchParams());
+  };
   return (
     <>
       <div className={css.location}>
@@ -16,6 +33,8 @@ export const Filters = () => {
         <FilterEquipment />
         <FilterType />
       </div>
+
+      <Button onClick={handleSearchClick}>Search</Button>
     </>
   );
 };

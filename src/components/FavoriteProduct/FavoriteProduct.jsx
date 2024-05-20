@@ -1,27 +1,30 @@
 import css from './FavoriteProduct.module.css';
 import { useEffect, useState } from 'react';
-import { storage } from '../../common/storage/storage.js';
 import clsx from 'clsx';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  addToFavorites,
+  removeFromFavorites,
+} from '../../redux/favorites.slice.js';
+import { selectFavoriteIds } from '../../redux/selectors.js';
 
 export const FavoriteProduct = ({ product }) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
-  useEffect(() => {
-    const favorites = storage.get('favorites') || [];
+  const favorites = useSelector(selectFavoriteIds);
 
+  useEffect(() => {
     setIsFavorite(favorites.includes(product.id));
-  }, [product]);
+  }, [product, favorites]);
+
+  const dispatch = useDispatch();
 
   const toggleFavorite = () => {
-    let favorites = storage.get('favorites') || [];
-
     if (isFavorite) {
-      favorites = favorites.filter(item => item !== product.id);
+      dispatch(removeFromFavorites(product.id));
     } else {
-      favorites.push(product.id);
+      dispatch(addToFavorites(product.id));
     }
-
-    storage.set('favorites', favorites);
 
     setIsFavorite(!isFavorite);
   };
