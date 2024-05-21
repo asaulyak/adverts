@@ -1,7 +1,8 @@
 import { Tag } from '../Tag/Tag.jsx';
+import css from './ProductTags.module.css';
 
 export const ProductTags = ({ product }) => (
-  <>
+  <div className={css.tags}>
     <Tag>
       <svg width="24" height="14">
         <use href="/icons.svg#icon-adults"></use>
@@ -134,5 +135,5 @@ export const ProductTags = ({ product }) => (
         microwave
       </Tag>
     )}
-  </>
+  </div>
 );

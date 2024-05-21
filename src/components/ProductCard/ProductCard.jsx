@@ -1,12 +1,16 @@
 import css from './ProductCard.module.css';
 import { useMemo } from 'react';
-import { NumericFormat } from 'react-number-format';
 import { Button } from '../Button/Button.jsx';
 import { ProductTags } from '../ProductTags/ProductTags.jsx';
 import { FavoriteProduct } from '../FavoriteProduct/FavoriteProduct.jsx';
+import { ProductPrice } from '../ProductPrice/ProductPrice.jsx';
 
-export const ProductCard = ({ product }) => {
+export const ProductCard = ({ product, openModal }) => {
   const image = useMemo(() => product.gallery[0], [product]);
+
+  const handleShowMoreClick = () => {
+    openModal(product);
+  };
 
   return (
     <div className={css.card}>
@@ -16,12 +20,7 @@ export const ProductCard = ({ product }) => {
       <div className={css.info}>
         <div className={css.title}>
           <div className={css.name}>{product.name}</div>
-          <NumericFormat
-            value={product.price}
-            suffix=".00"
-            displayType="text"
-            prefix="€"
-          />
+          <ProductPrice product={product} />
           <FavoriteProduct product={product} />
         </div>
 
@@ -47,7 +46,7 @@ export const ProductCard = ({ product }) => {
           <ProductTags product={product} />
         </div>
 
-        <Button>Show more</Button>
+        <Button onClick={handleShowMoreClick}>Show more</Button>
       </div>
     </div>
   );

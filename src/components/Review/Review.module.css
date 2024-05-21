@@ -1,0 +1,63 @@
+.review {
+  display: flex;
+  gap: 24px;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.title {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.avatar {
+  background-color: var(--light-grey);
+  border-radius: 50%;
+
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 30px;
+  color: var(--red);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 60px;
+  height: 60px;
+}
+
+.rating {
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+}
+
+.name {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.stars {
+  display: flex;
+  gap: 4px;
+}
+
+.star {
+  fill: var(--light-grey);
+  stroke: var(--light-grey);
+}
+
+.yellow {
+  fill: var(--yellow);
+  stroke: var(--yellow);
+}
+
+.comment {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--grey);
+}
