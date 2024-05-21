@@ -17,7 +17,7 @@ export const Review = ({ review }) => {
           stroke="red"
           fill="red"
         >
-          <use href="/icons.svg#icon-star"></use>
+          <use href="./icons.svg#icon-star"></use>
         </svg>
       )),
     [review]

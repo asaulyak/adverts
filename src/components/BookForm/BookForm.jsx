@@ -42,7 +42,7 @@ export const BookForm = () => {
                 calendarIconClassname={css.icon}
                 icon={
                   <svg width="20" height="20">
-                    <use href="/icons.svg#icon-calendar"></use>
+                    <use href="./icons.svg#icon-calendar"></use>
                   </svg>
                 }
               ></DatePicker>

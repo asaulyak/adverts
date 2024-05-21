@@ -34,7 +34,7 @@ export const ProductCard = ({ product, openModal }) => {
           </div>
           <div className={css.location}>
             <svg width="16" height="16">
-              <use href="/icons.svg#icon-map-pin"></use>
+              <use href="./icons.svg#icon-map-pin"></use>
             </svg>
             {product.location}
           </div>

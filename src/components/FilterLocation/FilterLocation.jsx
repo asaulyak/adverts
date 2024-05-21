@@ -11,7 +11,7 @@ export const FilterLocation = () => {
   return (
     <div className={css.location}>
       <svg width="18" height="20" className={css.icon}>
-        <use href="/icons.svg#icon-map-pin"></use>
+        <use href="./icons.svg#icon-map-pin"></use>
       </svg>
       <input className={css.input} type="text" onChange={handleInputChange} />
     </div>

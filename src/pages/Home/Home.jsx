@@ -12,7 +12,7 @@ export const Home = () => (
       </div>
     </section>
     <section className={css.services}>
-      <img src="/adverts/services.jpg" alt="services" className={css.image} />
+      <img src="./services.jpg" alt="services" className={css.image} />
       <div className={css.description}>
         <h2>Car Rental Services</h2>
         <div className={css.comment}>

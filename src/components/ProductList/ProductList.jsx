@@ -52,7 +52,7 @@ export const ProductList = ({ products }) => {
         style={modalStyles}
       >
         <svg width="32" height="32" className={css.close} onClick={closeModal}>
-          <use href="/icons.svg#icon-cross"></use>
+          <use href="./icons.svg#icon-cross"></use>
         </svg>
         {selectedProduct && <ProductModalContent product={selectedProduct} />}
       </Modal>

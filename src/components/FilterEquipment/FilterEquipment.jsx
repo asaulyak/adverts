@@ -27,7 +27,7 @@ export const FilterEquipment = () => {
           >
             <input type="checkbox" name={item.name} />
             <svg width="32" height="32">
-              <use href={`/icons.svg#icon-${item.icon}`}></use>
+              <use href={`./icons.svg#icon-${item.icon}`}></use>
             </svg>
             {item.title}
           </label>

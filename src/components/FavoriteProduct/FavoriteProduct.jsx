@@ -39,7 +39,7 @@ export const FavoriteProduct = ({ product }) => {
           [css.inactive]: !isFavorite,
         })}
       >
-        <use href="/icons.svg#icon-heart"></use>
+        <use href="./icons.svg#icon-heart"></use>
       </svg>
     </div>
   );

@@ -41,7 +41,7 @@ export const FilterType = () => {
           >
             <input type="radio" name="type" value={item.name} />
             <svg width="40" height="29">
-              <use href={`/icons.svg#icon-${item.icon}`}></use>
+              <use href={`./icons.svg#icon-${item.icon}`}></use>
             </svg>
             {item.title}
           </label>
