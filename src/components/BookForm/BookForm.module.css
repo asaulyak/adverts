@@ -1,0 +1,55 @@
+.title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+
+  margin-bottom: 24px;
+}
+
+.fields input,
+.fields textarea {
+  width: 100%;
+
+  background-color: var(--dark-white);
+  color: var(--black);
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+
+  padding: 18px !important;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+.fields input::placeholder,
+.fields textarea::placeholder {
+  color: rgba(16, 24, 40, 0.6);
+}
+
+.fields {
+  display: flex;
+  gap: 14px;
+  flex-direction: column;
+
+  margin-bottom: 40px;
+}
+
+.datepicker,
+.datepicker > div {
+  width: 100%;
+}
+
+.icon {
+  right: 4px;
+  top: 12px;
+}

@@ -46,10 +46,6 @@ function Products() {
     dispatch(updateSearchParams());
   };
 
-  useEffect(() => {
-    console.log(isLoading);
-  }, [isLoading]);
-
   return (
     <div className={css.page}>
       <div className={css.filters}>

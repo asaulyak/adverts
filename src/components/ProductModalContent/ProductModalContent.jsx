@@ -1,14 +1,20 @@
 import { ProductPrice } from '../ProductPrice/ProductPrice.jsx';
 import css from './ProductModalContent.module.css';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import clsx from 'clsx';
 import { ProductTags } from '../ProductTags/ProductTags.jsx';
 import { Review } from '../Review/Review.jsx';
+import { BookForm } from '../BookForm/BookForm.jsx';
 
 export const ProductModalContent = ({ product }) => {
   const gallery = useMemo(() => product.gallery.slice(0, 3), [product]);
 
   const [activeTab, setActiveTab] = useState('features');
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => (document.body.style.overflow = 'unset');
+  }, []);
 
   const handleTabClick = tab => setActiveTab(tab);
 
@@ -100,7 +106,9 @@ export const ProductModalContent = ({ product }) => {
             </div>
           </div>
         </div>
-        <div className={css.form}></div>
+        <div className={css.form}>
+          <BookForm />
+        </div>
       </div>
       <div
         className={clsx({
@@ -113,7 +121,9 @@ export const ProductModalContent = ({ product }) => {
             <Review key={review.reviewer_name} review={review} />
           ))}
         </div>
-        <div className={css.form}></div>
+        <div className={css.form}>
+          <BookForm />
+        </div>
       </div>
     </div>
   );

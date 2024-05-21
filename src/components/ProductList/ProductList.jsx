@@ -20,7 +20,6 @@ const modalStyles = {
     background: '#fff',
     borderRadius: 20,
     border: 'none',
-    overflow: 'auto'
   },
 };
 
@@ -47,15 +46,16 @@ export const ProductList = ({ products }) => {
         ))}
       </ul>
 
-      {selectedProduct && (
-        <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
-          style={modalStyles}
-        >
-          <ProductModalContent product={selectedProduct} />
-        </Modal>
-      )}
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={modalStyles}
+      >
+        <svg width="32" height="32" className={css.close} onClick={closeModal}>
+          <use href="/icons.svg#icon-cross"></use>
+        </svg>
+        {selectedProduct && <ProductModalContent product={selectedProduct} />}
+      </Modal>
     </>
   );
 };

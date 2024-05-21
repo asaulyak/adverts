@@ -3,3 +3,11 @@
   gap: 32px;
   flex-direction: column;
 }
+
+.close {
+  position: absolute;
+  right: 20px;
+  top: 40px;
+
+  cursor: pointer;
+}
