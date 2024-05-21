@@ -82,3 +82,8 @@
   gap: 4px;
   align-items: center;
 }
+
+.star {
+  fill: var(--yellow);
+  stroke: var(--yellow);
+}

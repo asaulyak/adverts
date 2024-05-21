@@ -23,7 +23,9 @@ export const ProductModalContent = ({ product }) => {
       <div className={css.title}>{product.name}</div>
       <div className={css.info}>
         <div className={css.rating}>
-          <img src="/Rating.png" alt="rating" />
+          <svg width="16" height="16" className={css.star}>
+            <use href="./icons.svg#icon-star"></use>
+          </svg>
           {product.rating}
           {!!product.reviews.length && <>({product.reviews.length} Reviews)</>}
         </div>

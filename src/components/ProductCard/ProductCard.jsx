@@ -26,7 +26,9 @@ export const ProductCard = ({ product, openModal }) => {
 
         <div className={css.details}>
           <div className={css.rating}>
-            <img src="/Rating.png" alt="rating" />
+            <svg width="16" height="16" className={css.star}>
+              <use href="./icons.svg#icon-star"></use>
+            </svg>
             {product.rating}
             {!!product.reviews.length && (
               <>({product.reviews.length} Reviews)</>

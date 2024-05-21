@@ -152,3 +152,8 @@
   flex-direction: column;
   width: 430px;
 }
+
+.star {
+  fill: var(--yellow);
+  stroke: var(--yellow);
+}
